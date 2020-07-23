@@ -13,5 +13,5 @@ fn elo() -> &'static str {
 }
 
 fn main() {
-    rocket::ignite().mount("/elo", routes![index, elo]).launch();
+    rocket::ignite().mount("/", routes![index, elo]).launch();
 }
