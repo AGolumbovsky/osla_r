@@ -13,5 +13,7 @@ fn elo(ass: String) -> String {
 }
 
 fn main() {
-    rocket::ignite().mount("/", routes![index, elo]).launch();
+    rocket::ignite()
+    .mount("/", routes![index, elo])
+    .launch();
 }
