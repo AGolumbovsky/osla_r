@@ -7,9 +7,9 @@ fn index() -> &'static str {
     "Behold the Placeholder!!!"
 }
 
-#[get("/elo")]
-fn elo() -> &'static str {
-    "elo you"
+#[get("/elo/<ass>")]
+fn elo(ass: String) -> String {
+    format!("elo, {}", ass.as_str())
 }
 
 fn main() {
