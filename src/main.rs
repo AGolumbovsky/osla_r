@@ -7,9 +7,14 @@ fn index() -> &'static str {
     "Behold the Placeholder!!!"
 }
 
-#[get("/elo/<ass>")]
-fn elo(ass: String) -> String {
-    format!("elo, {}", ass.as_str())
+#[get("/<word>")]
+fn word(word: String) -> String {
+    format!("elo, {}", word.as_str())
+}
+
+#[get("/learn")]
+fn learn() -> String {
+    format!("Learn THIS for the time being")
 }
 
 fn main() {
