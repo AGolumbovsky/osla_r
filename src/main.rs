@@ -19,6 +19,6 @@ fn learn() -> String {
 
 fn main() {
     rocket::ignite()
-    .mount("/", routes![index, elo])
+    .mount("/", routes![index, word, learn])
     .launch();
 }
