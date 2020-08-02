@@ -1,2 +1,5 @@
 [global.databases]
-pg_logs = { url = "/path/to/dbase.pg" }
+pg_logs = { url = "localhost:5432" }
+
+[development]
+port = 8888

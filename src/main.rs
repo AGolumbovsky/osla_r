@@ -3,6 +3,14 @@
 
 #[macro_use] extern crate rocket;
 
+#[macro_use] extern crate rocket_contrib;
+
+use rocket_contrib::databases::postgres;
+
+#[database("pg_logs")]
+struct LogsDbConn(postgres::Connection);
+
+
 #[get("/")]
 fn index() -> &'static str {
     "Behold the Placeholder!!!"
@@ -30,5 +38,6 @@ fn main() {
     rocket::ignite()
     .mount("/", routes![index, word, learn])
     .register(catchers![not_found])
+    .attach(LogsDbConn::fairing())
     .launch();
 }
