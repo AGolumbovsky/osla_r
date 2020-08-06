@@ -26,6 +26,17 @@ fn learn() -> String {
     format!("Learn THIS for the time being")
 }
 
+// the following is from the tutorial; make your own, with hookers and blackjack
+#[post("/", data = "<whatev>")]
+fn upload(whatev: String) -> Result<String, std::io::Error> {
+    // let filename = format!("upload/{id}", id = id);
+    // let url = format!("{host}/{id}\n", host = "http://localhost:8000", id = id);
+
+    // Write the paste out to the file and return the URL.
+    // paste.stream_to_file(Path::new(&filename))?;
+    Ok(whatev)
+}
+
 //testing dis
 use rocket::Request;
 
@@ -41,3 +52,4 @@ fn main() {
     .attach(LogsDbConn::fairing())
     .launch();
 }
+
