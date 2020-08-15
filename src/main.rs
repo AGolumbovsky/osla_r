@@ -5,10 +5,10 @@
 
 #[macro_use] extern crate rocket_contrib;
 
-use rocket_contrib::databases::postgres;
+use rocket_contrib::databases::diesel;
 
 #[database("pg_logs")]
-struct LogsDbConn(postgres::Connection);
+struct LogsDbConn(diesel::PgConnection);
 
 
 #[get("/")]
