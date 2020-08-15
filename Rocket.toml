@@ -1,5 +1,5 @@
 [global.databases]
-pg_logs = { url = "./db/db" }
+pg_logs = { url = "postgres://postgres:pg@localhost/osla" }
 
 [development]
 port = 8888
