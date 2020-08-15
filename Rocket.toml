@@ -1,5 +1,5 @@
 [global.databases]
-pg_logs = { url = "localhost:5432" }
+pg_logs = { url = "localhost" }
 
 [development]
 port = 8888
