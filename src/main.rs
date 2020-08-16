@@ -5,9 +5,15 @@
 
 #[macro_use] extern crate rocket_contrib;
 
-// use rocket_contrib::databases::diesel;
+use rocket_contrib::databases::diesel;
 
-extern crate diesel;
+extern crate dotenv;
+
+pub mod schema;
+pub mod models;
+
+
+// extern crate diesel;
 
 #[database("pg_logs")]
 struct LogsDbConn(diesel::PgConnection);
