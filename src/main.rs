@@ -5,7 +5,10 @@
 
 #[macro_use] extern crate rocket_contrib;
 
+use std::io;
 // use rocket_contrib::databases::diesel;
+use rocket_contrib::serve::StaticFiles;
+use rocket::response::{NamedFile};
 
 #[macro_use] extern crate diesel;
 
@@ -22,8 +25,9 @@ struct LogsDbConn(diesel::PgConnection);
 
 
 #[get("/")]
-fn index() -> &'static str {
-    "Behold the Placeholder!!!"
+fn index() -> io::Result<NamedFile> {
+   //"Behold the Placeholder!!!"
+   NamedFile::open("public/index.html")
 }
 
 #[get("/<word>")]
@@ -57,7 +61,8 @@ fn not_found(req: &Request) -> String {
 
 fn main() {
     rocket::ignite()
-    .mount("/", routes![index, word, learn])
+    .mount("/static", StaticFiles::from("./public"))
+    .mount("/", routes![index, word, learn]) 
     .register(catchers![not_found])
     .attach(LogsDbConn::fairing())
     .launch();
